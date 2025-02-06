@@ -7,10 +7,15 @@ import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import xyz.moeluoyu.sensitivewordfilter.SensitiveWordFilter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ListenerClass implements Listener {
     private final SensitiveWordFilter filter;
@@ -73,7 +78,34 @@ public class ListenerClass implements Listener {
     }
 
     @EventHandler
-    public void onBookEdit(InventoryCloseEvent event) {
-        // TODO: 处理书本过滤事件
+    public void onPlayerEditBook(PlayerEditBookEvent event) {
+        BookMeta bookMeta = event.getNewBookMeta();
+        List<String> pages = bookMeta.getPages(); // 获取书本的页面内容
+
+        // 创建一个新的可变 List 来存储过滤后的页面内容
+        List<String> filteredPages = new ArrayList<>();
+        // 过滤书本的标题（名称）
+        String originalTitle = bookMeta.getTitle();
+        if (originalTitle != null) {
+            String filteredTitle = filter.filter(originalTitle);
+            bookMeta.setTitle(filteredTitle);
+        }
+
+        // 过滤书本的作者
+        String originalAuthor = bookMeta.getAuthor();
+        if (originalAuthor != null) {
+            String filteredAuthor = filter.filter(originalAuthor);
+            bookMeta.setAuthor(filteredAuthor);
+        }
+
+        // 遍历书本的每一页，进行敏感词过滤
+        for (String pageContent : pages) {
+            String filteredContent = filter.filter(pageContent);
+            filteredPages.add(filteredContent);
+        }
+
+        // 更新书本内容
+        bookMeta.setPages(filteredPages);
+        event.setNewBookMeta(bookMeta);
     }
 }
