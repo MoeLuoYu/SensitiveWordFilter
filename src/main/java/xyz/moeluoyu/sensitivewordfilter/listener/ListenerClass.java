@@ -74,6 +74,6 @@ public class ListenerClass implements Listener {
 
     @EventHandler
     public void onBookEdit(InventoryCloseEvent event) {
-        // TODO: 处理编辑书的事件
+        // TODO: 处理书本过滤事件
     }
 }
