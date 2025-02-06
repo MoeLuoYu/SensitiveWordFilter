@@ -1,0 +1,9 @@
+name: SensitiveWordFilter
+main: xyz.moeluoyu.sensitivewordfilter.Main
+version: 1.0
+description: 敏感词检测系统
+commands:
+  sensitivewordfilter:
+    description: SensitiveWordFilter主命令.
+    aliases: [swf]
+    permission: sensitivewordfilter.setfiltermode

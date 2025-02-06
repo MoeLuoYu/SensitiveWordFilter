@@ -1,0 +1,3 @@
+# 过滤模式设定
+# 可用值为 permissive 和 enforcing
+filter-mode: permissive
