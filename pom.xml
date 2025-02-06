@@ -30,6 +30,12 @@
             <version>1.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Spigot Book API依赖 -->
+        <dependency>
+            <groupId>xyz.upperlevel.spigot.book</groupId>
+            <artifactId>spigot-book-api</artifactId>
+            <version>1.6</version>
+        </dependency>
     </dependencies>
 
     <!-- 构建插件 -->
