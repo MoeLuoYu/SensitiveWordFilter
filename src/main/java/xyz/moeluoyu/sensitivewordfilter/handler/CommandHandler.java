@@ -31,7 +31,7 @@ public class CommandHandler implements CommandExecutor {
                 if (args.length == 1) {
                     SensitiveWordFilter.FilterMode currentMode = filter.getFilterMode();
                     sender.sendMessage(ChatColor.GREEN + "当前过滤模式: " + currentMode.toString().toLowerCase());
-                    sender.sendMessage(ChatColor.RED + "可用的过滤模式: \npermissive(宽容模式)\nenforcing(严格模式)");
+                    sender.sendMessage(ChatColor.YELLOW + "可用的过滤模式: \npermissive(宽容模式)\nenforcing(严格模式)");
                     return false;
                 }
                 // 如果有二级子命令
