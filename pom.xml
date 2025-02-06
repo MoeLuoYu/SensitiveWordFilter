@@ -5,7 +5,7 @@
     <!-- 项目的基本信息 -->
     <groupId>xyz.moeluoyu</groupId>
     <artifactId>SensitiveWordFilter</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <!-- 项目名称 -->
