@@ -1,9 +1,16 @@
 name: SensitiveWordFilter
 main: xyz.moeluoyu.sensitivewordfilter.Main
-version: 1.1
+version: 1.2
 description: 敏感词检测系统
 commands:
   sensitivewordfilter:
     description: SensitiveWordFilter主命令.
     aliases: [swf]
-    permission: sensitivewordfilter.setfiltermode
+    permission: sensitivewordfilter.admin
+permissions:
+  sensitivewordfilter.admin:
+    description: 插件管理员权限
+    default: op
+  sensitivewordfilter.exempt:
+    description: 豁免敏感词检测
+    default: op
