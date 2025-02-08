@@ -1,5 +1,6 @@
 package xyz.moeluoyu.sensitivewordfilter;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -103,7 +104,12 @@ public class SensitiveWordFilter {
         }
     }
 
-    public String filter(String input) {
+    public String filter(CommandSender sender, String input) {
+        // 检查玩家是否有豁免权限
+        if (sender != null && sender.hasPermission("sensitivewordfilter.exempt")) {
+            return input;
+        }
+
         // 先将专有名词替换为临时占位符
         Map<String, String> placeholderMap = new HashMap<>();
         for (int i = 0; i < properNouns.size(); i++) {
