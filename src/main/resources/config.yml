@@ -1,3 +1,12 @@
 # 过滤模式设定
-# 可用值为 permissive 和 enforcing
+# 可用值为 permissive 和# 敏感词过滤器配置
 filter-mode: permissive
+
+# Debug模式设定
+# 启用后将在控制台输出详细的过滤日志
+debug-mode: false
+
+# 豁免玩家列表
+# 在此列表中的玩家将不受敏感词过滤影响
+# 注意：OP不会自动拥有豁免权限，需要手动添加到列表中
+exempt-players: []
