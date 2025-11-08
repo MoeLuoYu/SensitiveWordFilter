@@ -1,6 +1,6 @@
 name: SensitiveWordFilter
-main: xyz.moeluoyu.sensitivewordfilter.Main
-version: 1.2
+main: xyz.moeluoyu.sensitivewordfilter.SensitiveWordFilter
+version: 1.3
 description: 敏感词检测系统
 commands:
   sensitivewordfilter:
@@ -10,7 +10,4 @@ commands:
 permissions:
   sensitivewordfilter.admin:
     description: 插件管理员权限
-    default: op
-  sensitivewordfilter.exempt:
-    description: 豁免敏感词检测
     default: op
